@@ -21,6 +21,10 @@ fn main() {
 
     // expressiones que no son funciones
     expression_to_var();
+
+    // Consumiendo expresion y almacenando valor
+    let num_plus_five: i32 = plus_five(5);
+    println!("El número capturado es: {}",num_plus_five);
 }
 
 // DECLARANDO Y CONSUMIENDO TU PRIMERA FUNCIÓN
@@ -82,7 +86,9 @@ fn expression_func() -> String{
 }
 
 // Las expresiones no tienen que ser necesariamente funciones, podemos definir una expresión para
-// evaluar un valor que sea usado en una variable
+// evaluar un valor que sea usado en una variable. Con las llaves podemos crear expresiones que
+// retornen valores sin que necesariamente sea una función. Esto lo veremos también con las
+// condicionales.
 
 fn expression_to_var(){
     let y = {
@@ -92,3 +98,20 @@ fn expression_to_var(){
 
     println!("El valor de y es: {}", y)
 }
+
+// DEVOLVER VALORES EN UNA FUNCIÓN
+// 
+// En rust para que una función sea una expresión, debemos definir el tipo de dato que va a
+// devolver la función, esto además de ser útil para que el compilador realice su trabajo más
+// comodamente, nos ayuda a saber exactamente que devuelve una función.
+//
+// En el cuerpo de la función tenemos dos formas para devolver valores, puedes usar la kw return,
+// pero si deseas, con solo no poner un ; al final de una sentencia, haces que lo que este en esa
+// última sentencia, sea el valor que devuelve la función. Si pones ; ya la expresión pasa a
+// convertirse en una declaración y no va a devolver nada.
+
+fn plus_five(num:i32) -> i32 {
+    num + 5
+}
+
+

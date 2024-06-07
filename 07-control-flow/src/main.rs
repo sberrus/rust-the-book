@@ -1,19 +1,20 @@
-/*
-    Control de flujo
-*/
-fn main() {
-    // if statement
-    /*
-        Los bloques if no difiere demasiado de los bloques if en otros lenguajes de programación
-    */
-    let value = 3;
+// CONTROL DE FLUJO
+//
+// if de toda la vida :v
 
-    if value >= 9 {
-        println!("El valor es superior o igual a 9");
-    } else {
-        println!("El valor es inferior a 9")
+fn main(){
+    let number = 5;
+
+    if number < 5 {
+        println!("El número es menor que 5");
+    } else{
+        println!("El número no es menor a 5");
     }
 
+    // en rust no existe el concepto de trulish o falsish, por lo que siempre debe evaluarse una
+    // condición como true o false para que sea válida.
     
-    
+    // USANDO IF PARA ASIGNAR VALORES
+    // Como se ha visto, todos las expresiones de 
 }
+
