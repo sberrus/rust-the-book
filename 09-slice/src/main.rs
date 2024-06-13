@@ -40,7 +40,7 @@ fn main() {
     let whole_world = &word2[..word2_len]; // podemos pasar una variable si necesitamos que ese
                                            // indice se calcule previamente o si queremos
                                            // almacenarlo en otro sitio
-    let whole_world2 = &word2[..]; // pasando (..) sin indices, podemos obtener todo el valor de la
+    let _whole_world2 = &word2[..]; // pasando (..) sin indices, podemos obtener todo el valor de la
                                    // variable.
 
     println!("valor hello: {}",hello);
