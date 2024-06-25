@@ -9,16 +9,29 @@
  *
  * */
 
+// estados de USA
+#[derive(Debug)]
+enum UsState {
+    Alabama,
+    Alaska,
+}
+
 // tipos de moneda
 enum Coin {
     Penny,
     Nickel,
     Dime,
     Quarter,
+    UsQuarter(UsState),
 }
+
+
 
 fn main() {
     println!("Hello, world!");
+
+    // Accediendo a datos anidados para usar en el match
+    value_in_cents(Coin::UsQuarter(UsState::Alabama));
 }
 
 // devuelve el valor de la moneda en centimos
@@ -40,5 +53,9 @@ fn value_in_cents (coin: Coin) -> u8 {
             println!("Lucky quarter!");
             25
         },
+        Coin::UsQuarter(state) => {
+            println!("State quarter from {state:?}!");
+            25
+        }
     }
 }
