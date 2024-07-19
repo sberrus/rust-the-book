@@ -94,6 +94,30 @@ fn deliver_order() {} // esta dentro del módulo padre
 
 // Módulo hijo
 mod back_of_house {
+    // struct público
+    pub struct Breakfast {
+        pub toast: String,
+        seasonal_fruit: String,
+    }
+    // extender función pública
+    impl Breakfast {
+        pub fn summer(toast: &str) -> Breakfast {
+            Breakfast {
+                toast: String::from(toast),
+                seasonal_fruit: String::from("peaches"),
+            }
+        }
+    }
+
+    // enum público
+    /*
+       La principal diferencia es que en el caso de als variantes de los enums, estos son publicos.
+    */
+    pub enum Appetizer {
+        Soup,
+        Salad,
+    }
+
     // Función interna del módulo hijo
     fn fix_incorrect_order() {
         // Accede a la función hermana dentro de back_of_house()
@@ -104,4 +128,17 @@ mod back_of_house {
 
     // función interna del módulo hijo back_of_house
     fn cook_order() {}
+}
+
+pub fn aet_at_resturant_pro() {
+    // consumir structuras públicas de un modulo público
+    let mut meal = back_of_house::Breakfast::summer("Rye");
+    // cambiando valor público dentro de un struct publico dentro de un modulo publico
+    meal.toast = String::from("Wheat");
+    println!("I'd like {} toast please", meal.toast);
+    // meal.seasonal_fruit = String::from("blueberries"); -> esto no esta permitido porque seasonal_fruit no es un campo público y no puede ser accedido desde fuera del scope del struct.
+
+    // consumiendo enums dentro de un mod publico
+    let order1 = back_of_house::Appetizer::Soup;
+    let order2 = back_of_house::Appetizer::Salad;
 }
